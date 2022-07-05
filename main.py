@@ -4,6 +4,7 @@ from flask_restx import Api
 from app.config import Config
 from app.dao.model.user import User
 from app.database import db
+from app.views.auth import auth_ns
 from app.views.users import user_ns
 
 
@@ -19,6 +20,7 @@ def configure_app(application: Flask):
     db.init_app(application)
     api = Api(application)
     api.add_namespace(user_ns)
+    api.add_namespace(auth_ns)
     load_data()
 
 

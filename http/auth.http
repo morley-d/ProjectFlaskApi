@@ -1,0 +1,19 @@
+POST http://localhost:5055/auth/
+Content-Type: application/json
+
+{
+  "username": "John",
+  "password": "test"
+}
+
+###
+
+POST http://localhost:5055/auth/
+Content-Type: application/json
+
+{
+  "username": "Admin",
+  "password": "test"
+}
+
+###

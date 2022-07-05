@@ -3,6 +3,7 @@ from flask_restx import Namespace, Resource
 from marshmallow import Schema, fields
 
 from app.container import user_service
+from app.helpers.decorators import admin_required
 
 user_ns = Namespace("users")
 
@@ -29,6 +30,7 @@ class UsersView(Resource):
 
 @user_ns.route('/<int:uid>')
 class UserView(Resource):
+    @admin_required
     def delete(self, uid):
         user_service.delete(uid)
         return "", 204

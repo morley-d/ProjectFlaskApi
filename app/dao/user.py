@@ -9,7 +9,7 @@ class UserDAO:
         return self.session.query(User).get(uid)
 
     def get_by_username(self, username):
-        return self.session.query(User).filter(User.user_name == username).first()
+        return self.session.query(User).filter(User.username == username).first()
 
     def get_all(self):
         return self.session.query(User).all()
@@ -21,7 +21,7 @@ class UserDAO:
         return entity
 
     def delete(self, uid):
-        user = self.session.get_one(uid)
+        user = self.get_one(uid)
         self.session.delete(user)
         self.session.commit()
 
